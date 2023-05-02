@@ -59,7 +59,16 @@ Missing values are present in almost all features, except in Location, Price and
 
 - Clearing the missing value records of Size Type, Size Num, Rooms, Bathrooms
 - Transforming the missing values of the Furnishing field into the value "Unknown"
-- Deletion of the Car Parks field, because it is not very informative.
+- Deletion of the Car Parks field, because it is not very informative
 - Location values containing fewer than 100 properties were filtered out, as they did not correspond to real city neighborhoods
+
+
+## Result dataset
+The dataset obtained after preprocessing contains 49835 records and 8 features. 
+<img src="figures/fig2.png" width="700" />
+
+# Data Understanding
+The Location field still has a number of values greater than the real districts of the city. Different location values in which there are a negligible number of property listings. Mont Kiara and KLCC are the neighborhoods containing the most listings.
+
 
 
