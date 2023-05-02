@@ -68,7 +68,31 @@ The dataset obtained after preprocessing contains 49835 records and 8 features.
 <img src="figures/fig2.png" width="700" />
 
 # Data Understanding
+## Categorical features
 The Location field still has a number of values greater than the real districts of the city. Different location values in which there are a negligible number of property listings. Mont Kiara and KLCC are the neighborhoods containing the most listings.
 
+<img src="figures/fig3.png" width="800" />
+
+Condominium is the most common type of property among the records in the dataset. Most of the properties for sale have a built-up size typology. Most of the properties for sale are partially furnished.
+
+<img src="figures/fig4.png" width="800" />
+
+## Continuous features
+
+Most properties contain 2 bathrooms and 3 bedrooms. Bathrooms and Rooms Num do not have particularly biased distributions. Price and Size Num, on the other hand, have distorted distributions, which makes their relative visualizations difficult to understand. Possible presence of outlier values in Price and Size Num which are extremely unusual to manage. 
+
+<img src="figures/fig5.png" width="500" />
+
+The Price and Size Num fields clearly have minimum and maximum values that are not possible within the domain.
+Minimum price of RM308 and minimum size of 0 sqft.
+Maximum price and maximum size equal to extremely high and infrequent values.
+
+<img src="figures/fig6.png" width="350" />
+
+The exploratory analysis of the variables shows the presence of outliers in particular in the variables Price and Size Num.
+We have chosen to consider the instances that exceed the limits of the minimum and maximum thresholds set in advance as outliers.
+Number of records in the dataset equal to 48,978.
+
+<img src="figures/fig7.png" width="500" />
 
 
