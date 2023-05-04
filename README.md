@@ -95,4 +95,54 @@ Number of records in the dataset equal to 48,978.
 
 <img src="figures/fig7.png" width="500" />
 
+# Clustering
+
+## K-means
+
+The K-means algorithm was applied to search for any clusters within the data.
+By analyzing the results for different values of k, no particularly interesting results were obtained.
+For k=5 very confused clusters are obtained as the algorithm is not able to discriminate well the various subgroups of properties.
+Euclidean distance was used as a measure of distance
+Sum of squared errors: 64979.11
+Possible problem: presence of variables of categorical type
+
+<img src="figures/fig8.png" width="300" />
+
+Ignoring the categorical variables and taking into consideration only Price, Rooms Num, Bathrooms and Size Num different results are obtained.
+By selecting a number of clusters k=6 as an algorithm parameter, higher quality clusters are obtained. Sum of squared errors: 368.59. The 6 clusters found by the algorithm have the following centroids. A Euclidean distance function was used with a seed=10 value.
+
+<img src="figures/fig9.png" width="300" />
+
+- Cluster 0: small properties with a minimum number of rooms and bathrooms and a medium-low price.
+- Cluster 1: very cheap properties but with a greater size and number of rooms and bathrooms.
+- Cluster 2: Most expensive and largest properties in the dataset
+- Cluster 3: properties with a medium-high price and a medium-high size value with over 5 bedrooms and bathrooms.
+- Cluster 4: most common properties with an average price and size.
+- Cluster 5: expensive properties with more than 6 rooms and 5 bathrooms, but with a structure size smaller than cluster 2.
+
+<img src="figures/fig10.png" width="500" />
+
+## Expectation-maximization 
+Using the EM (Expectation-Maximization) algorithm and taking into consideration all the attributes of the dataset (even the categorical ones), different results are obtained from the K-means algorithm. By not specifying the number of clusters to generate, k=7 clusters are obtained, a number similar to that specified in the K-means algorithm. The log of likelihood obtained is -30.68. By inserting a number of k equal to 6 as a parameter in the algorithm, a log likelihood value equal to -29.87 is obtained, preferable with respect to the previous one, as it is a value to be maximized.
+
+<img src="figures/fig11.png" width="300" />
+
+Although the EM algorithm can distinguish clusters in properties having similar characteristics, it has some problems with some attributes.
+Along the feature Price, the clusters 0,1,5 cannot be discriminated optimally.
+The properties belonging to cluster 4 are not easy to interpret as they are distributed along the entire range of fields, in particular in Price and Size Num.
+
+<img src="figures/fig12.png" width="500" />
+
+## Cluster validation
+
+The validation phase of the clustering performed is particularly complex in this case since it is an unsupervised problem. In fact, there is no external validation criterion, as there is no class variable that can evaluate the quality of the clusters created.
+It is therefore necessary to use internal validation criteria, considering however that these criteria will favor the clustering algorithm that uses a similar type of objective function for its optimization. In this case it is not optimal to make a comparison between clustering algorithms that are based on different methodologies, such as K-means and EM. In this case, the internal criterion based on the sum of the quadratic distances from the centroids (SSQ) was used to determine the best number of clusters to create through the K-means algorithm.
+
+<img src="figures/fig13.png" width="500" />
+
+From the following graph it is possible to notice an inflection point with a number k=3
+However the SSQ value continues to decrease up to a value of k=6, which corresponds to the number of clusters previously used.
+
+
+
 
